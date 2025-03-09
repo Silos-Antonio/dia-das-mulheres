@@ -13,42 +13,47 @@ h1 {
 }
 
 body {
-	margin: 0px;
-	background-image: url(foto-background.png);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+	height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .instruction{
 	background-color:rgb(255, 127, 127);
 	padding: 10px;
-	padding-bottom: 200px;
 	position: absolute;
 	border-radius: 10px;
-	opacity: 0.5;
+	opacity: 1;
 	font-size: 1.6rem;
 	color: rgba(0, 0, 0, 0.554);
 	top: 36%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	z-index: 1;
+	transition: opacity 0.5s ease-out;
 }
 
 .container {
+	background-color: #fce4ec;
+	background-image: url(foto-background.png);
+	background-position: center;
+	background-size: cover;
+
 	position: relative;
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
+	transition: background-color 2s ease;
 }
 
 .heart {
 	position: absolute;
 	left: 50%;
-	top: 40%;
+	top: 60%;
 	text-align: center;
 	transform: translate(-50%, -50%);
 	transition: transform 2s;
-	z-index: 1;
+	z-index: 2;
 	cursor: pointer;
 }
 
@@ -89,17 +94,20 @@ body {
 	border-radius: 5px;
 	overflow: scroll;
 	scrollbar-width: none;
+	transition: opacity 0.5s ease-in-out;
 }
- 
-.message .sincere{
-	text-align: left;
-	font-family: "Cinzel, serif";
-	font-size: 14px;
-	line-height: 1.2em;
+
+.instruction.hidden {
+	opacity: 0;
+    pointer-events: none;
 }
 
 .message .sincere p{
 	margin: 0;
+}
+
+.hidden {
+	display: none;
 }
 
 @keyframes beat {
@@ -185,6 +193,7 @@ body {
 	animation-play-state: running;
 	animation-direction: reverse;
 	animation-fill-mode: forwards;
+	top: 40%; 
 }
 
 .beating > img {
@@ -210,6 +219,10 @@ body {
 
 /* Resposta para telas pequenas (smartphones) */
 @media screen and (max-width: 768px) {
+
+	.body {
+		background-image: url(background-mobile.jpeg);
+	}
 
     .instruction {
         font-size: 1.2rem;
@@ -241,6 +254,10 @@ body {
 
 /* Resposta para telas ainda menores, como celulares com tela muito pequena */
 @media screen and (max-width: 480px) {
+
+	.body {
+		background-image: url(background-mobile.jpeg);
+	}
 
     .instruction {
         font-size: 1rem;
